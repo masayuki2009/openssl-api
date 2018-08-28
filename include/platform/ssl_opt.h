@@ -15,6 +15,8 @@
 #ifndef _SSL_OPT_H_
 #define _SSL_OPT_H_
 
+#ifndef NUTTX
 #include "sdkconfig.h"
+#endif
 
 #endif

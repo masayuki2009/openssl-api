@@ -74,6 +74,7 @@ static void ssl_platform_debug(void *ctx, int level,
                      const char *file, int line,
                      const char *str)
 {
+#ifndef NUTTX
     /* Shorten 'file' from the whole file path to just the filename
 
        This is a bit wasteful because the macros are compiled in with
@@ -82,6 +83,7 @@ static void ssl_platform_debug(void *ctx, int level,
     char *file_sep = rindex(file, '/');
     if(file_sep)
         file = file_sep + 1;
+#endif
 
     SSL_DEBUG(SSL_DEBUG_ON, "%s:%d %s", file, line, str);
 }

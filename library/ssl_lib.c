@@ -1607,3 +1607,29 @@ int SSL_CTX_set_alpn_protos(SSL_CTX *ctx, const unsigned char *protos, unsigned 
      return 0;
 }
 
+void SSL_load_error_strings(void)
+{
+}
+
+int SSL_library_init(void)
+{
+  return 1;
+}
+
+void ERR_clear_error(void)
+{
+}
+
+void ERR_free_strings(void)
+{
+}
+
+unsigned long ERR_get_error(void)
+{
+  return 0;
+}
+
+char *ERR_error_string(unsigned long e, char *buf)
+{
+  return NULL;
+}

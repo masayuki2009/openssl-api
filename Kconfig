@@ -1,3 +1,9 @@
+config EXTERNAL_OPENSSL
+	bool "openssl library"
+	default n
+	---help---
+		Enables the openssl library.
+
 menu "OpenSSL"
 
 config OPENSSL_DEBUG

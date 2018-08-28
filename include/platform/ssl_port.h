@@ -19,10 +19,17 @@
  extern "C" {
 #endif
 
+#ifdef NUTTX
+#include <string.h>
+#include <stdlib.h>
+#include <debug.h>
+#include <stdio.h>
+#else
 #include "esp_types.h"
 #include "esp_log.h"
 #include "string.h"
 #include "malloc.h"
+#endif
 
 void *ssl_mem_zalloc(size_t size);
 
@@ -36,7 +43,12 @@ void *ssl_mem_zalloc(size_t size);
 #define ssl_speed_up_exit()
 
 #define SSL_DEBUG_FL
+
+#ifdef NUTTX
+#define SSL_DEBUG_LOG(fmt, ...) printf(fmt, ##__VA_ARGS__)
+#else
 #define SSL_DEBUG_LOG(fmt, ...) ESP_LOGI("openssl", fmt, ##__VA_ARGS__)
+#endif
 
 #ifdef __cplusplus
  }
